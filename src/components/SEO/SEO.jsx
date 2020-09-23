@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Helmet from "react-helmet";
 import urljoin from "url-join";
 import config from "../../../data/SiteConfig";
-const cardUrl = `${site.siteMetadata.siteUrl}${location.pathname}card.jpg`;
+
 class SEO extends Component {
   render() {
     const { postNode, postPath, postSEO } = this.props;
@@ -11,6 +11,7 @@ class SEO extends Component {
     let keywords;
     let image = "";
     let postURL;
+    let cardUrl = "";
     if (postSEO) {
       const postMeta = postNode.frontmatter;
       ({ title } = postMeta);
@@ -23,14 +24,14 @@ class SEO extends Component {
       if (postMeta.cover) {
         image = postMeta.cover.childImageSharp.fixed.src;
       }
-
+      const cardUrl = `${config.siteUrl}${postPath}card.jpg`;
       postURL = urljoin(config.siteUrl, config.pathPrefix, postPath);
     } else {
       title = config.siteTitle;
       description = config.siteDescription;
       image = config.siteLogo;
     }
-
+    cardUrl = `${config.siteUrl}img/${postPath}card.jpg`;
     image = urljoin(config.siteUrl, config.pathPrefix, image);
     const blogURL = urljoin(config.siteUrl, config.pathPrefix);
     const schemaOrgJSONLD = [

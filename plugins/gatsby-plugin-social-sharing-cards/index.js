@@ -4,12 +4,12 @@ const jimp = require("jimp");
 module.exports = async ({ markdownNode }) => {
   try {
     const {
-      frontmatter: { title = "Perttu Lähteenlahti", tags = ["Article"] },
+      frontmatter: { title = "FLutter Daily", tags = ["Article"] },
       fields: { slug, readingTime },
       fileAbsolutePath,
     } = markdownNode;
 
-    const location = `./public${slug}card.jpg`;
+    const location = `./public/img/${slug}-card.jpg`;
     const cleanedTitle = title.replace(
       /([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g,
       ""
