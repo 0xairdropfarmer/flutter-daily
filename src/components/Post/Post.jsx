@@ -7,7 +7,7 @@ import PostDivider from "./PostDivider";
 import PostCategories from "./PostCategories";
 import "./Post.scss";
 import "../../../content/styles/code-highlight.scss";
-import TopCourse from './TopCourse'
+
 const Post = ({ postNode, config, slug }) => {
   const post = postNode.frontmatter;
   if (!post.id) {
@@ -21,7 +21,11 @@ const Post = ({ postNode, config, slug }) => {
     <div className="post-container">
       <div className="meta-share-wrapper padding-top padding-bottom">
         <PostDate extraClass="meta-wrapper" date={post.date} />
-        <PostShare extraClass="share-wrapper" postPath={slug} postNode={postNode} />
+        <PostShare
+          extraClass="share-wrapper"
+          postPath={slug}
+          postNode={postNode}
+        />
       </div>
       <PostDivider />
       <div
@@ -31,8 +35,16 @@ const Post = ({ postNode, config, slug }) => {
       <PostDivider />
       <div className="padding-top padding-bottom">
         <small>
-          <PostCategories categories={post.categories} extraClass="block" iconColor="#555" />
-          <PostTags tags={post.tags} extraClass="block padding-top-half" iconColor="#555" />
+          <PostCategories
+            categories={post.categories}
+            extraClass="block"
+            iconColor="#555"
+          />
+          <PostTags
+            tags={post.tags}
+            extraClass="block padding-top-half"
+            iconColor="#555"
+          />
         </small>
       </div>
       <PostDivider />
@@ -42,9 +54,8 @@ const Post = ({ postNode, config, slug }) => {
         lazyload={config.lazyLoadComments}
         btnLoadComments={config.btnLoadComments}
       />
-      <TopCourse />
     </div>
-  )
-}
+  );
+};
 
 export default Post;

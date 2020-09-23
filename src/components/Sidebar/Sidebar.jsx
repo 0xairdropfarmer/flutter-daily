@@ -1,20 +1,20 @@
-import React from 'react';
-import WidgetCategory from './WidgetCategory';
-import WidgetTag from './WidgetTag';
-import WidgetLatestPosts from './WidgetLatestPosts';
-import WidgetLinks from './WidgetLinks';
-import WidgetSearch from './WidgetSearch';
-import WidgetAds from './WidgetAds'
-import config from '../../../data/SiteConfig';
-
+import React from "react";
+import WidgetCategory from "./WidgetCategory";
+import WidgetTag from "./WidgetTag";
+import WidgetLatestPosts from "./WidgetLatestPosts";
+import WidgetLinks from "./WidgetLinks";
+import WidgetSearch from "./WidgetSearch";
+import WidgetAds from "./WidgetAds";
+import config from "../../../data/SiteConfig";
+import WidgetTemplate from "./WidgetTemplate";
 const Sidebar = ({ tagList, categoryList, latestPostEdges, links }) => {
   return (
     <aside
       className={`sidebar-container width-full ${
-        config.sidebarSticky ? 'height-full' : ''
-        }`}
+        config.sidebarSticky ? "height-full" : ""
+      }`}
     >
-      <WidgetAds />
+      <WidgetTemplate />
       <WidgetSearch />
 
       {latestPostEdges && (

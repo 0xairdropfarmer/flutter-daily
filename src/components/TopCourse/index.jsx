@@ -2,7 +2,7 @@ import React from "react"
 import './TopCourse.scss'
 const TopCourse = ({ socials, links, copyright }) => (
     <div className="top-courses">
-        <h2 style={{ textAlign: 'center', padding: '1rem' }}>Top React Native Courses</h2>
+        <h2 style={{ textAlign: 'center', padding: '1rem' }}>Top Flutter Courses</h2>
         <div className="top-course-box">
             <div className="aam" style={{ textAlign: 'center' }}>
                 <div className="course-container">
