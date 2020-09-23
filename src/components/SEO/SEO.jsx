@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Helmet from "react-helmet";
 import urljoin from "url-join";
 import config from "../../../data/SiteConfig";
-
+const cardUrl = `${site.siteMetadata.siteUrl}${location.pathname}card.jpg`;
 class SEO extends Component {
   render() {
     const { postNode, postPath, postSEO } = this.props;
@@ -18,7 +18,7 @@ class SEO extends Component {
         ? postMeta.description
         : postNode.excerpt;
 
-      keywords = postMeta.keywords
+      keywords = postMeta.keywords;
 
       if (postMeta.cover) {
         image = postMeta.cover.childImageSharp.fixed.src;
@@ -39,8 +39,8 @@ class SEO extends Component {
         "@type": "WebSite",
         url: blogURL,
         name: title,
-        alternateName: config.siteTitleAlt ? config.siteTitleAlt : ""
-      }
+        alternateName: config.siteTitleAlt ? config.siteTitleAlt : "",
+      },
     ];
     if (postSEO) {
       schemaOrgJSONLD.push(
@@ -54,10 +54,10 @@ class SEO extends Component {
               item: {
                 "@id": postURL,
                 name: title,
-                image
-              }
-            }
-          ]
+                image,
+              },
+            },
+          ],
         },
         {
           "@context": "http://schema.org",
@@ -68,9 +68,9 @@ class SEO extends Component {
           headline: title,
           image: {
             "@type": "ImageObject",
-            url: image
+            url: image,
           },
-          description
+          description,
         }
       );
     }
@@ -91,7 +91,7 @@ class SEO extends Component {
         {postSEO ? <meta property="og:type" content="article" /> : null}
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content={image} />
+        <meta property="og:image" content={cardUrl} />
         <meta
           property="fb:app_id"
           content={config.siteFBAppID ? config.siteFBAppID : ""}
@@ -105,7 +105,7 @@ class SEO extends Component {
         />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={image} />
+        <meta name="twitter:image" content={cardUrl} />
       </Helmet>
     );
   }

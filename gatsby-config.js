@@ -21,10 +21,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-facebook-pixel`,
       options: {
-        pixelId: '349929655165679',
+        pixelId: "349929655165679",
       },
     },
     "gatsby-plugin-react-helmet",
+    `gatsby-plugin-social-sharing-cards`,
     {
       resolve: "gatsby-plugin-netlify-cms",
       options: {
